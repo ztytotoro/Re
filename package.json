@@ -1,7 +1,7 @@
 {
-  "name": "tslibrary",
+  "name": "re",
   "version": "0.0.0",
-  "description": "TypeScript template library",
+  "description": "",
   "main": "src/index.ts",
   "scripts": {
     "test": "jest",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ztytotoro/TsLibrary.git"
+    "url": "git+https://github.com/ztytotoro/Re.git"
   },
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ztytotoro/TsLibrary/issues"
+    "url": "https://github.com/ztytotoro/Re/issues"
   },
-  "homepage": "https://github.com/ztytotoro/TsLibrary#readme",
+  "homepage": "https://github.com/ztytotoro/Re#readme",
   "devDependencies": {
     "@pika/plugin-build-node": "^0.6.0",
     "@pika/plugin-build-web": "^0.6.0",
