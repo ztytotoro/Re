@@ -10,4 +10,9 @@ test('walk', () => {
 
   walk([1, 3, 5], mock);
   expect(mock.mock.results[1].value).toBe(3);
+
+  mock.mockClear();
+
+  walk([], mock);
+  expect(mock.mock.results.map(x => x.value)).toEqual([]);
 });

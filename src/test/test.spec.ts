@@ -1,6 +1,6 @@
-import { test2 } from "./test2";
-import { walk } from "./test3";
+import { add_1 } from './test1';
+import { walk } from './test3';
 
-test("log", () => {
-  expect(walk([1, 2], test2)).toEqual([3, 4]);
+test('log', () => {
+  expect(walk([1, 2], add_1())).toEqual([1, 2]);
 });

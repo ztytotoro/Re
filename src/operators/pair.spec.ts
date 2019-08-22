@@ -1,7 +1,10 @@
-import { pair } from "./pair";
+import { walk } from 'src/utils/walk';
+import { pair } from './pair';
 
-test("pair", () => {
-  expect(pair("(a*b(c+d))", "(", ")")).toEqual(["a*b(c+d)"]);
-  expect(pair(pair("(a*b(c+d))", "(", ")")[0], "(", ")")).toEqual(["c+d"]);
-  expect(pair("(a*b[c+d])", "[", "]")).toEqual(["c+d"]);
+test('pair', () => {
+  expect(walk('(a*b(c+d))', pair('(', ')'))).toEqual([['a*b(c+d)']]);
+  expect(walk('(a*b(c+d))(b+2)', pair('(', ')'))).toEqual([
+    ['a*b(c+d)', 'b+2']
+  ]);
+  expect(walk('|a*b(c+d)|(b+2)', pair('|'))).toEqual([['a*b(c+d)']]);
 });

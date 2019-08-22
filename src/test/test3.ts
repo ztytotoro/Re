@@ -1,10 +1,8 @@
 export function walk(list: any[], handler: Function) {
-  const t = (function(this: any) {
-    function add_1(val: number) {
-      return val + 2;
+  for (let i = 0; i < list.length; i++) {
+    if (i === list.length - 1) {
+      return handler(list[i]);
     }
-    return this;
-  })();
-  handler.bind(t);
-  return list.map(x => handler(x));
+    handler(list[i]);
+  }
 }

@@ -1,15 +1,11 @@
-import { walk } from "src/utils/walk";
-
-export function pair(str: string, left: string, right = left) {
+export function pair(left: string, right = left) {
   const pairStack: string[] = [];
   const result: string[] = [];
-  let t = "";
-  walk(str, item => {
-    if (item === left) {
+  let t = '';
+  return (item: string) => {
+    if (item === left && pairStack.length === 0) {
       pairStack.push(item);
-      if (pairStack.length === 1) {
-        return;
-      }
+      return result;
     }
     if (item === right) {
       const pop = pairStack[pairStack.length - 1];
@@ -17,13 +13,15 @@ export function pair(str: string, left: string, right = left) {
         pairStack.pop();
         if (pairStack.length === 0) {
           result.push(t);
-          t = "";
+          t = '';
         }
       }
+    } else if (item === left) {
+      pairStack.push(item);
     }
     if (pairStack.length > 0) {
       t += item;
     }
-  });
-  return result;
+    return result;
+  };
 }
