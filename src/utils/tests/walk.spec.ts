@@ -1,4 +1,4 @@
-import { walk } from './walk';
+import { walk } from '../walk';
 
 test('walk', () => {
   const mock = jest.fn(x => x);
@@ -15,4 +15,6 @@ test('walk', () => {
 
   walk([], mock);
   expect(mock.mock.results.map(x => x.value)).toEqual([]);
+
+  expect(walk([1, 3, 5], x => x, x => x + 1)).toEqual([5, 6]);
 });

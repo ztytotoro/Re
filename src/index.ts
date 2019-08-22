@@ -1,3 +1,3 @@
-export function test() {
-  return 123;
-}
+export * from './assertions';
+export * from './operators';
+export * from './utils';

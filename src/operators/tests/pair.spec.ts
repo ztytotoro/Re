@@ -1,5 +1,5 @@
 import { walk } from 'src/utils/walk';
-import { pair } from './pair';
+import { pair } from '../pair';
 
 test('pair', () => {
   expect(walk('(a*b(c+d))', pair('(', ')'))).toEqual([['a*b(c+d)']]);
