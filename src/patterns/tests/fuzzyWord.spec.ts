@@ -1,6 +1,5 @@
 import { FuzzyWord } from '../fuzzyWord';
 import { traverse } from 'src/utils/traverse';
-import {} from 'rxjs';
 
 test('Word', async () => {
   const testStr = 'class a extends { }, class';
