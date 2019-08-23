@@ -51,5 +51,8 @@
   },
   "jest": {
     "testEnvironment": "node"
+  },
+  "dependencies": {
+    "rxjs": "^6.5.2"
   }
 }

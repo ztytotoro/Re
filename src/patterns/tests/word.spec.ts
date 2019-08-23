@@ -1,11 +1,13 @@
 import { Word } from '../word';
 import { traverse } from 'src/utils/traverse';
 
-test('Word', () => {
+test('Word', async () => {
   const word = new Word('class');
-  traverse('class a extends {}', word.next.bind(word));
-  expect(word.match).toBe(true);
-  word.reset();
+  const log = jest.fn();
+  word.result.subscribe(t => {
+    console.log(t);
+    log(t);
+  });
+  traverse('class a extends {}, class', word.next.bind(word));
   traverse('clss a extends {}', word.next.bind(word));
-  expect(word.match).toBe(false);
 });
