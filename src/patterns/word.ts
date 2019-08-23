@@ -1,8 +1,6 @@
 import { WordBase, IMatch, Match } from './base';
 import { Subject } from 'rxjs';
 
-// TODO: If keep word is set to true, keep the matched content as {start: number, legnth: number}, also support findAll \
-// Use rxjs to notify result
 export class Word extends WordBase {
   readonly isFuzzy = false;
   index!: number;
