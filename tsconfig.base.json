@@ -4,6 +4,7 @@
     "module": "esnext",
     "baseUrl": "./",
     "strict": true,
+    "sourceMap": true,
     "lib": [
       "dom",
       "es2018"
