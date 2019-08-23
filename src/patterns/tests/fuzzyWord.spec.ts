@@ -1,8 +1,8 @@
-import { FuzzyWord } from '../fuzzyWord';
-import { traverse } from 'src/utils/traverse';
-import { ICharacterSet } from '../base';
+import { FuzzyWord } from "../fuzzyWord";
+import { traverse } from "src/utils/traverse";
+import { ICharacterSet } from "../base";
 
-const testFactory = (option: ICharacterSet, title = 'test') => (
+const testFactory = (option: ICharacterSet, title = "test") => (
   testStr: string,
   expectedResult: any
 ) => {
@@ -20,33 +20,57 @@ const testFactory = (option: ICharacterSet, title = 'test') => (
 const test1 = testFactory(
   {
     include: null,
-    exclude: [' ', ','],
+    exclude: [" ", ","],
     lengthRange: {
       least: 2,
       most: Infinity
     }
   },
-  'exclude space and comma, at least 2 character'
+  "exclude space and comma, at least 2 character"
 );
 
 const test2 = testFactory(
   {
     include: null,
-    exclude: [' ', ','],
+    exclude: [" ", ","],
     lengthRange: {
       least: 1,
       most: Infinity
     }
   },
-  'exclude space and comma, at least 1 character'
+  "exclude space and comma, at least 1 character"
 );
 
-test1('class a extends { }, class', ['class', 'extends', 'class']);
-test2('class a extends { }, class', [
-  'class',
-  'a',
-  'extends',
-  '{',
-  '}',
-  'class'
+const test3 = testFactory(
+  {
+    include: ["c", "l", "a", "s", "e", "x", "t", "n", "d", "{", "}"],
+    exclude: null,
+    lengthRange: {
+      least: 1,
+      most: 3
+    }
+  },
+  "exclude space and comma, at least 1 character"
+);
+
+test1("class a extends { }, class", ["class", "extends", "class"]);
+test2("class a extends { }, class", [
+  "class",
+  "a",
+  "extends",
+  "{",
+  "}",
+  "class"
+]);
+test3("class a extends { }, class", [
+  "cla",
+  "ss",
+  "a",
+  "ext",
+  "end",
+  "s",
+  "{",
+  "}",
+  "cla",
+  "ss"
 ]);
