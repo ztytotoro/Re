@@ -3,10 +3,10 @@ import { traverse } from 'src/utils/traverse';
 import { ICharacterSet } from '../base';
 
 const testFactory = (option: ICharacterSet, title = 'test') => (
-  testStr: any,
+  testStr: string,
   expectedResult: any
 ) => {
-  test(title, async () => {
+  test(title, () => {
     const word = new FuzzyWord(option);
     const result: string[] = [];
     word.result.subscribe(t => {

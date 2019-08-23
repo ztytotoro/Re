@@ -1,13 +1,21 @@
 import { Word } from '../word';
 import { traverse } from 'src/utils/traverse';
 
-test('Word', async () => {
-  const word = new Word('class');
-  const log = jest.fn();
-  word.result.subscribe(t => {
-    console.log(t);
-    log(t);
+const testFactory = (wordStr: string, title = 'test') => (
+  testStr: string,
+  expectedResult: any
+) => {
+  test(title, () => {
+    const word = new Word(wordStr);
+    const result: string[] = [];
+    word.result.subscribe(t => {
+      result.push(t.content(testStr) as string);
+    });
+    traverse(testStr, word.next.bind(word));
+    expect(result).toEqual(expectedResult);
   });
-  traverse('class a extends {}, class', word.next.bind(word));
-  traverse('clss a extends {}', word.next.bind(word));
-});
+};
+
+const testClass = testFactory('class');
+
+testClass('class class', ['class', 'class']);
